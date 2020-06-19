@@ -1,0 +1,156 @@
+.header 
+  %h1.header__top
+    ちょっとしたIT用語集
+
+.main
+  .main__glossary
+    %h2.main__glossary__headline
+      カタカナ語
+    .main__glossary__item
+      %a.main__glossary__item__word
+        タイト
+      %span.main__glossary__item__word__description
+        ゆとりがない状態
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        デイリー
+      %span.main__glossary__item__word__description
+        毎日やる何かのこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ドラスティック
+      %span.main__glossary__item__word__description
+        思い切ったとか根本的にとか過激なとか、そんな感じの意味
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        トレードオフ
+      %span.main__glossary__item__word__description
+        2つのうち、どっちかを良くすると、そのせいでもう一方が悪くなる関係のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ナレッジ
+      %span.main__glossary__item__word__description
+        知識,経験,ノウハウなどの意味をふんわりとした感じで言いたいときに使う
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ニーズ
+      %span.main__glossary__item__word__description
+        不足を満たすために必要なもの
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ヒアリング
+      %span.main__glossary__item__word__description
+        聞き取り調査のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        フィックス
+      %span.main__glossary__item__word__description
+        確定させること
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        フェーズ
+      %span.main__glossary__item__word__description
+        段階、工程のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ブラッシュアップ
+      %span.main__glossary__item__word__description
+        現状の物を見直したり修正したりして、より良いものにすること
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        フリーライド
+      %span.main__glossary__item__word__description
+        ただ乗りのこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ブルーオーシャン
+      %span.main__glossary__item__word__description
+        穴場スポットな市場のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        プロセスイノベーション
+      %span.main__glossary__item__word__description
+        物を作ったりサービスを提供したりする際のやり方を今までとは比較にならないくらいガッツリ大きく変えること
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        プロダクトイノベーション
+      %span.main__glossary__item__word__description
+        今までにない製品やサービスを生み出すこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ベストプラクティス
+      %span.main__glossary__item__word__description
+        一番良いやり方のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ベネフィット
+      %span.main__glossary__item__word__description
+        利益とか恩恵とか価値とか、そんな感じの意味
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ペンディング
+      %span.main__glossary__item__word__description
+        一回止めて先送りすること
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ポジショニング【マーケティング】
+      %span.main__glossary__item__word__description
+        立ち位置を明確化して差別化を図ること
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        マージン
+      %span.main__glossary__item__word__description
+        余白、あるいは手数料のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        マイグレーション
+      %span.main__glossary__item__word__description
+        移行のこと
+
+  .transitions
+    .transitions__area
+      %span.ransitions__area__count
+      登録件数74:　
+      = link_to '1',posts_path
+      = link_to '2',index2_posts_path
+      = link_to '3',index3_posts_path
+      = link_to '4',index4_posts_path
+
+
+
+%h3 用語集についてコメントしよう！
+- if user_signed_in?
+  = link_to "ログアウト", destroy_user_session_path, :method => :delete
+  = link_to "マイページへ", user_path(current_user.id)
+  %h4 投稿する
+  = form_for @post do |f|
+    = f.text_field :content
+    = f.submit
+  %hr/
+  %h4 投稿一覧
+  - @posts.each do |post|
+    %a{:href => "/users/#{post.user.id}"}= post.user.email
+    %p
+      %a{:href => "/posts/#{post.id}"}= post.content
+- else
+  = link_to "ユーザー登録", new_user_registration_path
+  = link_to "ログイン", new_user_session_path

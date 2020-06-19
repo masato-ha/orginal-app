@@ -1,0 +1,150 @@
+.header 
+  %h1.header__top
+    ちょっとしたIT用語集
+
+.main
+  .main__glossary
+    %h2.main__glossary__headline
+      カタカナ語
+    .main__glossary__item
+      %a.main__glossary__item__word
+        アウトソーシング
+      %span.main__glossary__item__word__description
+        外部から供給、つまり外部の人にやってもらう仕組み
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        アウトプット
+      %span.main__glossary__item__word__description
+        出力、もしくは成果のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        アグリー
+      %span.main__glossary__item__word__description
+        同意する
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        アサイン
+      %span.main__glossary__item__word__description
+        割り当てるとか対応させること
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        アジェンダ
+      %span.main__glossary__item__word__description
+        議題とか課題とか計画とかのこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        アセット
+      %span.main__glossary__item__word__description
+        資産とか財産のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        アポ
+      %span.main__glossary__item__word__description
+        会う約束をすること
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        アライアンス
+      %span.main__glossary__item__word__description
+        業務提携のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        イノベーション
+      %span.main__glossary__item__word__description
+        新しくて画期的なこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        インプット
+      %span.main__glossary__item__word__description
+        入力、記憶するもしくは勉強のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ウィークリー
+      %span.main__glossary__item__word__description
+        週次、毎週のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ウィンウィン
+      %span.main__glossary__item__word__description
+        お互いが満足できること
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ウォンツ
+      %span.main__glossary__item__word__description
+        欲しいもの、ニーズを満たすもの
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        オープンイノベーション
+      %span.main__glossary__item__word__description
+        新しくて画期的な何かを作ったりやったりするにあたって、外部の人にも協力してもらうこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        オピニオンリーダー
+      %span.main__glossary__item__word__description
+        周囲に対する影響力の強い人のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        オンスケ
+      %span.main__glossary__item__word__description
+        予定通りや計画通りのこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        カニバリゼーション
+      %span.main__glossary__item__word__description
+        自分のところのやつ同士で売上とかの奪い合いになること
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ガバナンス
+      %span.main__glossary__item__word__description
+        まとめるとか治めるとか管理すること
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        キーパーソン
+      %span.main__glossary__item__word__description
+        その物事の鍵となる、重要人物のこと
+
+  .transitions
+    .transitions__area
+      %span.ransitions__area__count
+      登録件数74:　
+      = link_to '1',posts_path
+      = link_to '2',index2_posts_path
+      = link_to '3',index3_posts_path
+      = link_to '4',index4_posts_path
+
+
+
+%h3 用語集についてコメントしよう！
+- if user_signed_in?
+  = link_to "ログアウト", destroy_user_session_path, :method => :delete
+  = link_to "マイページへ", user_path(current_user.id)
+  %h4 投稿する
+  = form_for @post do |f|
+    = f.text_field :content
+    = f.submit
+  %hr/
+  %h4 投稿一覧
+  - @posts.each do |post|
+    %a{:href => "/users/#{post.user.id}"}= post.user.email
+    %p
+      %a{:href => "/posts/#{post.id}"}= post.content
+- else
+  = link_to "ユーザー登録", new_user_registration_path
+  = link_to "ログイン", new_user_session_path

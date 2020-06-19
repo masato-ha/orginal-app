@@ -1,0 +1,132 @@
+.header 
+  %h1.header__top
+    ちょっとしたIT用語集
+
+.main
+  .main__glossary
+    %h2.main__glossary__headline
+      カタカナ語
+    .main__glossary__item
+      %a.main__glossary__item__word
+        マター
+      %span.main__glossary__item__word__description
+        担当の仕事とか責任を持つべき人とか、そんな感じの意味
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        マネタイズ
+      %span.main__glossary__item__word__description
+        収益化のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        マンアワー
+      %span.main__glossary__item__word__description
+        作業量を表現する際に使われる単位のひとつ
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        マンスリー
+      %span.main__glossary__item__word__description
+        月次のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        マンパワー
+      %span.main__glossary__item__word__description
+        人手とか作業者とか労働力とか、そんな感じの意味
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ユーザビリティ
+      %span.main__glossary__item__word__description
+        使いやすさのこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ライフサイクル
+      %span.main__glossary__item__word__description
+        始まってから終わるまでや生まれてから消えるまで的な意味
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        リスケ
+      %span.main__glossary__item__word__description
+        予定を組み直すこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        リスケジュール
+      %span.main__glossary__item__word__description
+        予定を組み直すこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        リソース
+      %span.main__glossary__item__word__description
+        作ったり動かしたりするのに必要なモノのこと。実現するのに必要なエネルギー源
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        レギュレーション
+      %span.main__glossary__item__word__description
+        規約とか規則とかルールとか
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        レセプション
+      %span.main__glossary__item__word__description
+        歓迎（歓迎会）的な意味の用語、あるいは受付的な意味
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        レッドオーシャン
+      %span.main__glossary__item__word__description
+        人気スポットな市場のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ローンチ
+      %span.main__glossary__item__word__description
+        新しいサービスや商品の提供を開始すること
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ワークフロー
+      %span.main__glossary__item__word__description
+        お仕事の流れ（に関する何か）
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ワークライフバランス
+      %span.main__glossary__item__word__description
+        仕事もプライベートも大事にすること
+
+  .transitions
+    .transitions__area
+      %span.ransitions__area__count
+      登録件数74:　
+      = link_to '1',posts_path
+      = link_to '2',index2_posts_path
+      = link_to '3',index3_posts_path
+      = link_to '4',index4_posts_path
+
+
+
+%h3 用語集についてコメントしよう！
+- if user_signed_in?
+  = link_to "ログアウト", destroy_user_session_path, :method => :delete
+  = link_to "マイページへ", user_path(current_user.id)
+  %h4 投稿する
+  = form_for @post do |f|
+    = f.text_field :content
+    = f.submit
+  %hr/
+  %h4 投稿一覧
+  - @posts.each do |post|
+    %a{:href => "/users/#{post.user.id}"}= post.user.email
+    %p
+      %a{:href => "/posts/#{post.id}"}= post.content
+- else
+  = link_to "ユーザー登録", new_user_registration_path
+  = link_to "ログイン", new_user_session_path

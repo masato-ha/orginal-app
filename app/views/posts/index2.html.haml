@@ -1,0 +1,150 @@
+.header 
+  %h1.header__top
+    ちょっとしたIT用語集
+
+.main
+  .main__glossary
+    %h2.main__glossary__headline
+      カタカナ語
+    .main__glossary__item
+      %a.main__glossary__item__word
+        キャリア
+      %span.main__glossary__item__word__description
+        電気通信サービスを提供する会社さん、あるいは経歴のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        クライアント
+      %span.main__glossary__item__word__description
+        利用者側のコンピュータ、あるいはお客さまのこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        クラウド
+      %span.main__glossary__item__word__description
+        データを外部に置いて、ネットワーク経由で使う形態
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        クローズドイノベーション
+      %span.main__glossary__item__word__description
+        新しくて画期的な何かを作ったりやったりするにあたって、内部の人たちだけで頑張るやり方
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        コアコンピタンス
+      %span.main__glossary__item__word__description
+        他の会社に勝ってるところ
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        コミットメント
+      %span.main__glossary__item__word__description
+        約束とか誓約のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        コンセンサス
+      %span.main__glossary__item__word__description
+        OKを貰う的な意味
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        コンパチビリティ
+      %span.main__glossary__item__word__description
+        互換性のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        コンプライアンス
+      %span.main__glossary__item__word__description
+        ルールを守ること
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        コンベンション
+      %span.main__glossary__item__word__description
+        会議とか集会とか
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        シェア
+      %span.main__glossary__item__word__description
+        共有すること、もしくは、市場における割合のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ジャストアイデア
+      %span.main__glossary__item__word__description
+        思いつきのこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ステークホルダー
+      %span.main__glossary__item__word__description
+        利害関係者のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ストラテジー
+      %span.main__glossary__item__word__description
+        戦略のこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        セグメンテーション
+      %span.main__glossary__item__word__description
+        全体を何らかの条件に基づいて分割すること
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        セグメント
+      %span.main__glossary__item__word__description
+        全体を何らかの条件で分割した際の、それぞれの固まりのこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ゼロベース
+      %span.main__glossary__item__word__description
+        最初からやり直すこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ソリューション
+      %span.main__glossary__item__word__description
+        サービスとか製品とかノウハウのこと
+  .main__glossary
+    .main__glossary__item
+      %a.main__glossary__item__word
+        ターゲティング【マーケティング】
+      %span.main__glossary__item__word__description
+        対象を絞ること
+
+  .transitions
+    .transitions__area
+      %span.ransitions__area__count
+      登録件数74:　
+      = link_to '1',posts_path
+      = link_to '2',index2_posts_path
+      = link_to '3',index3_posts_path
+      = link_to '4',index4_posts_path
+
+
+
+%h3 用語集についてコメントしよう！
+- if user_signed_in?
+  = link_to "ログアウト", destroy_user_session_path, :method => :delete
+  = link_to "マイページへ", user_path(current_user.id)
+  %h4 投稿する
+  = form_for @post do |f|
+    = f.text_field :content
+    = f.submit
+  %hr/
+  %h4 投稿一覧
+  - @posts.each do |post|
+    %a{:href => "/users/#{post.user.id}"}= post.user.email
+    %p
+      %a{:href => "/posts/#{post.id}"}= post.content
+- else
+  = link_to "ユーザー登録", new_user_registration_path
+  = link_to "ログイン", new_user_session_path
