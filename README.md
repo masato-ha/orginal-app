@@ -29,4 +29,3 @@ https://grossary.herokuapp.com/posts
 インフラ・環境構築等
 ・Git/GitHub
 ・heroku
-
