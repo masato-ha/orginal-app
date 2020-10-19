@@ -1,24 +1,16 @@
 # README
+# Name（リポジトリ/プロジェクト/OSSなどの名前）
+ 
+word-app<br>ちょっとしたIT用語集
+ 
+# DEMO
+ 
+https://gyazo.com/ffb92e96e70572710d23239226102c06
+ 
+# Features
+ 
+ちょっとしたIT用語集をみて、ユーザー登録を行い、ログイン機能を使う事により、用語に対して意見やコメントを残せる少し変わったアプリを作りました。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# License
+ 
+https://grossary.herokuapp.com/posts
