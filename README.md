@@ -15,7 +15,7 @@ https://gyazo.com/ffb92e96e70572710d23239226102c06
  
 https://grossary.herokuapp.com/posts
 
-使用技術
+# 使用技術
 フロントエンド
 ・HTML/CSS
 ・Haml
