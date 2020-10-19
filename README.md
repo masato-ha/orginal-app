@@ -14,3 +14,19 @@ https://gyazo.com/ffb92e96e70572710d23239226102c06
 # License
  
 https://grossary.herokuapp.com/posts
+
+使用技術
+フロントエンド
+・HTML/CSS
+・Haml
+・Scss
+
+バックエンド
+・Ruby 2.5.8
+・Ruby on Rails 5.2.4.3
+・MySQL 5.6.47
+
+インフラ・環境構築等
+・Git/GitHub
+・heroku
+
